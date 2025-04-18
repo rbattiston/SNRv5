@@ -1,0 +1,27 @@
+{
+  "_sample": "This is a SAMPLE schedule instance for demonstration and UI testing purposes only.",
+  "scheduleName": "My Grow Schedule Template (Instance for VegZone1Cycle, SAMPLE)",
+  "lightsOnTime": 360,
+  "lightsOffTime": 1080,
+  "scheduleUID": "sched_template_1678886400",
+  "autopilotWindows": [
+    {
+      "startTime": 600,
+      "endTime": 960,
+      "matricTension": 15.5,
+      "doseVolume": 250,
+      "settlingTime": 30,
+      "doseDuration": 0
+    }
+  ],
+  "durationEvents": [
+    { "startTime": 480, "duration": 120, "endTime": 482 }
+  ],
+  "volumeEvents": [
+    {
+      "startTime": 720,
+      "doseVolume": 150,
+      "calculatedDuration": 15
+    }
+  ]
+}

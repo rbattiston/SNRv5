@@ -1,0 +1,9 @@
+{
+  "_sample": "This is a SAMPLE cycle template for demonstration and UI testing purposes only.",
+  "templateId": "standard_veg_cycle",
+  "templateName": "Standard Vegetative Cycle (SAMPLE)",
+  "sequence": [
+    { "step": 1, "libraryScheduleId": "sched_template_1678886400", "durationDays": 14 },
+    { "step": 2, "libraryScheduleId": "another_schedule_template_uid", "durationDays": 7 }
+  ]
+}

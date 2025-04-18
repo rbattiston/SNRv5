@@ -1,0 +1,77 @@
+{
+  "_sample": "This is a SAMPLE board_config.json file for demonstration and UI testing purposes only.",
+  "boardName": "SNRv5 Advanced (SAMPLE)",
+  "directIO": {
+    "relayOutputs": {
+      "count": 8,
+      "controlMethod": "ShiftRegister",
+      "pins": { "data": 13, "clock": 27, "latch": 14, "oe": 4 },
+      "pointIdPrefix": "DirectRelay_",
+      "pointIdStartIndex": 0
+    },
+    "digitalInputs": {
+      "count": 0,
+      "pins": [],
+      "pointIdPrefix": "DirectDI_",
+      "pointIdStartIndex": 0
+    },
+    "analogInputs": [
+      {
+        "type": "0-5V",
+        "count": 2,
+        "resolutionBits": 12,
+        "pins": [32, 33],
+        "pointIdPrefix": "DirectAI_0-5V_",
+        "pointIdStartIndex": 0
+      },
+      {
+        "type": "4-20mA",
+        "count": 4,
+        "resolutionBits": 12,
+        "pins": [36, 39, 34, 35],
+        "pointIdPrefix": "DirectAI_4-20mA_",
+        "pointIdStartIndex": 0
+      }
+    ],
+    "analogOutputs": [
+      {
+        "type": "0-5V_DAC",
+        "count": 1,
+        "resolutionBits": 8,
+        "pins": [25],
+        "pointIdPrefix": "DirectAO_DAC_",
+        "pointIdStartIndex": 0
+      }
+    ]
+  },
+  "modbusInterfaces": [
+    {
+      "interfaceId": "RS485_1",
+      "uartPort": 2,
+      "baudRate": 9600,
+      "config": "SERIAL_8N1",
+      "txPin": 17,
+      "rxPin": 16,
+      "rtsPin": 4
+    }
+  ],
+  "modbusDevices": [
+    {
+      "deviceId": "TankSensor_A",
+      "profileId": "xyz_level_sensor",
+      "interfaceId": "RS485_1",
+      "slaveAddress": 10,
+      "pollingIntervalMs": 5000,
+      "enabled": true,
+      "overrideDescription": "Tank A Level Sensor"
+    },
+    {
+      "deviceId": "MultiRelay_B",
+      "profileId": "generic_4ch_relay",
+      "interfaceId": "RS485_1",
+      "slaveAddress": 11,
+      "pollingIntervalMs": 10000,
+      "enabled": true
+    }
+  ]
+}

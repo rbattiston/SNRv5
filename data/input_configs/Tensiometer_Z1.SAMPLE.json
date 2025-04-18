@@ -1,0 +1,47 @@
+{
+  "_sample": "This is a SAMPLE input point configuration for demonstration and UI testing purposes only.",
+  "pointId": "Tensiometer_Z1",
+  "inputConfig": {
+    "type": "tensiometer",
+    "subtype": "vacuum_pressure",
+    "name": "Veg Tensiometer Zone 1 (SAMPLE)",
+    "manufacturer": "SNR",
+    "model": "Robs_Sensor",
+    "unit": "kPa",
+    "input_scaling": {
+      "reference_type": "dc_voltage",
+      "offset": 0.0,
+      "multiplier": 1.0,
+      "divisor": 1.0,
+      "integration_control": "integrated",
+      "input_range": { "min_voltage": 1.020561, "max_voltage": 2.99900 },
+      "output_range": { "min_pressure": 0.0, "max_pressure": 30.0 },
+      "display_unit": "kPa"
+    },
+    "calibration": {
+      "enabled": true,
+      "data_points": [
+        { "voltage": 1.020561, "pressure": 0.0, "timestamp": "2023-10-01T12:00:00Z" },
+        { "voltage": 2.99900, "pressure": 30.0, "timestamp": "2023-10-01T12:05:00Z" }
+      ],
+      "custom_points": [
+        { "voltage": 1.5, "pressure": 10.0, "timestamp": "2023-10-01T12:10:00Z", "notes": "User-defined midpoint" }
+      ]
+    },
+    "temperature_compensation": {
+      "enabled": false,
+      "source_pointId": "TempSensor_Room1",
+      "center_point": 25.0,
+      "slope": 0.147,
+      "offset": 0.0,
+      "update_interval_minutes": 15
+    },
+    "alarms": {
+      "enabled": true,
+      "low_limit": -3.0,
+      "high_limit": 30.0,
+      "delay_time_minutes": 1,
+      "priority": "silent"
+    }
+  }
+}

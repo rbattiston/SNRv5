@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNR System - Schedules</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>SNR System</h1>
+        </div>
+        <div class="user-info">
+            <span class="user-name" id="username">Loading...</span>
+            <span class="user-role" id="userRole">...</span>
+            <button class="logout-btn" id="logoutBtn">Logout</button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="sidebar">
+            <a href="/dashboard.html" class="nav-item">Dashboard</a>
+            <a href="/schedule.html" class="nav-item active">Schedules</a>
+            <div class="nav-item">Cycle Templates</div> <!-- Placeholder -->
+            <div class="nav-item">Active Cycles</div>   <!-- Placeholder -->
+            <div class="nav-item">Settings</div>        <!-- Placeholder -->
+        </nav>
+
+        <main class="content">
+            <h1 class="page-title">Schedule Management</h1>
+
+            <!-- Schedule Selection & Creation -->
+            <div class="schedule-controls card">
+                <label for="scheduleSelect">Select Schedule:</label>
+                <select id="scheduleSelect">
+                    <option value="">-- Select a Schedule --</option>
+                    <!-- Options will be populated by JS -->
+                </select>
+                <button id="editSelectedBtn" class="button" disabled style="margin-left: 10px;">Edit Selected</button>
+                <button id="deleteSelectedBtn" class="button danger" disabled style="margin-left: 10px;">Delete Selected</button>
+                <button id="copySelectedBtn" class="button" disabled style="margin-left: 10px;">Copy Selected</button>
+
+
+                <button id="createNewBtn" class="button">Create New</button>
+            </div>
+
+             <div id="statusMessage" class="error-message" style="margin-bottom: 15px;"></div> <!-- For errors like lock conflicts -->
+
+            <!-- Schedule Editing Section (Initially Hidden) -->
+            <div id="editSection" style="display:none;">
+                <h2 class="edit-section-title" id="editSectionTitle">Edit Schedule</h2>
+
+                <!-- Schedule Metadata -->
+                <div class="schedule-meta">
+                    <div class="form-group">
+                        <label for="scheduleName">Schedule Name</label>
+                        <input type="text" id="scheduleName" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="scheduleUID">Schedule UID (Read-only)</label>
+                        <input type="text" id="scheduleUID" readonly style="background-color: rgba(255,255,255,0.05);">
+                    </div>
+                    <div class="form-group">
+                        <label for="lightsOnTime">Lights On Time (HH:MM)</label>
+                        <input type="time" id="lightsOnTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lightsOffTime">Lights Off Time (HH:MM)</label>
+                        <input type="time" id="lightsOffTime" required>
+                    </div>
+                </div>
+
+                <h3 class="section-title">Add Event</h3>
+
+                <!-- Tabs for Event Types -->
+                <div class="tabs">
+                    <button class="tab-button active autopilot" data-tab="autopilotTab">AutoPilot Window</button>
+                    <button class="tab-button duration" data-tab="durationTab">Duration Event</button>
+                    <button class="tab-button volume" data-tab="volumeTab">Volume Event</button>
+                </div>
+
+                <!-- Tab Content -->
+                <div id="autopilotTab" class="tab-content active">
+                    <h4>AutoPilot Window Details</h4>
+                    <div class="form-group">
+                        <label for="apStartTime">Start Time (HH:MM)</label>
+                        <input type="time" id="apStartTime" value="00:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="apEndTime">End Time (HH:MM)</label>
+                        <input type="time" id="apEndTime" value="23:59">
+                    </div>
+                    <div class="form-group">
+                        <label for="apMatricTension">Matric Tension (kPa)</label>
+                        <input type="number" id="apMatricTension" step="0.01" min="0.1" max="75.0" value="3.5">
+                    </div>
+                     <div class="form-group">
+                        <label for="apDoseVolume">Dose Volume (mL)</label>
+                        <input type="number" id="apDoseVolume" min="0" max="2000" value="250">
+                    </div>
+                     <div class="form-group">
+                        <label for="apSettlingTime">Settling Time (minutes)</label>
+                        <input type="number" id="apSettlingTime" min="0" max="60" value="15">
+                    </div>
+                </div>
+
+                <div id="durationTab" class="tab-content">
+                     <h4>Duration Event Details</h4>
+                     <div class="form-group">
+                        <label for="durStartTime">Start Time (HH:MM)</label>
+                        <input type="time" id="durStartTime" value="00:00">
+                    </div>
+                     <div class="form-group">
+                        <label for="durDuration">Duration (seconds)</label>
+                        <input type="number" id="durDuration" min="0" max="86399" value="60">
+                    </div>
+                     <div class="form-group">
+                        <label for="durRepetitions">Repetitions (0 for single event)</label>
+                        <input type="number" id="durRepetitions" min="0" value="0">
+                    </div>
+                     <div class="form-group">
+                        <label for="durInterval">Interval (minutes)</label>
+                        <input type="range" id="durInterval" min="1" max="1440" value="30" style="width: 80%; display: inline-block; vertical-align: middle;">
+                        <span id="durIntervalValue" style="display: inline-block; width: 15%; text-align: right;">30 min</span>
+                    </div>
+                </div>
+
+                <div id="volumeTab" class="tab-content">
+                     <h4>Volume Event Details</h4>
+                     <div class="form-group">
+                        <label for="volStartTime">Start Time (HH:MM)</label>
+                        <input type="time" id="volStartTime" value="00:00">
+                    </div>
+                     <div class="form-group">
+                        <label for="volDoseVolume">Dose Volume (mL)</label>
+                        <input type="number" id="volDoseVolume" min="0" max="2000" value="125">
+                    </div>
+                     <div class="form-group">
+                        <label for="volRepetitions">Repetitions (0 for single event)</label>
+                        <input type="number" id="volRepetitions" min="0" value="0">
+                    </div>
+                     <div class="form-group">
+                        <label for="volInterval">Interval (minutes)</label>
+                        <input type="range" id="volInterval" min="1" max="1440" value="30" style="width: 80%; display: inline-block; vertical-align: middle;">
+                         <span id="volIntervalValue" style="display: inline-block; width: 15%; text-align: right;">30 min</span>
+                    </div>
+                </div>
+
+                <button id="addEventBtn" class="button">Add Event</button>
+                 <div id="eventAddStatus" class="error-message" style="margin-top: 10px;"></div>
+
+                <!-- Visualization Area -->
+                <h3 class="section-title">Schedule Visualization</h3>
+                <div id="visualizationContainer" class="visualization-container">
+                    <div id="timeline" class="timeline">
+                        <!-- Timeline labels will be added here by JS -->
+                    </div>
+                    <div id="eventGrid" class="event-grid">
+                        <!-- Event bars/highlights will be added here by JS -->
+                    </div>
+                </div>
+
+                <!-- Save/Cancel Buttons -->
+                <div class="edit-actions">
+
+                <!-- Text Representation Area -->
+                <h3 class="section-title" style="margin-top: 30px;">Event List</h3>
+                <div id="textVisualization" class="text-visualization-area">
+                    <p>No events added yet.</p>
+                </div>
+
+                    <button id="saveScheduleBtn" class="button">Save Schedule</button>
+                    <button id="cancelEditBtn" class="button danger">Cancel</button> <!-- Swapped and added danger class -->
+                </div>
+            </div> <!-- End #editSection -->
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        &copy; 2025 SNR System | Secure ESP32 Web Application
+    </footer>
+
+    <script src="/js/schedule.js" defer></script>
+    <!-- Include dashboard script for header functionality -->
+    <script src="/js/dashboard.js" defer></script>
+</body>
+</html>

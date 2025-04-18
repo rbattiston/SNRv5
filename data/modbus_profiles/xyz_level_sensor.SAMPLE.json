@@ -1,0 +1,34 @@
+{
+  "_sample": "This is a SAMPLE Modbus device profile for demonstration and UI testing purposes only.",
+  "profileId": "xyz_level_sensor",
+  "model": "XYZ Level Sensor v1.2 (SAMPLE)",
+  "manufacturer": "SensorCorp",
+  "description": "Standard level sensor with pump control. SAMPLE ONLY.",
+  "points": [
+    {
+      "pointIdSuffix": "_Level",
+      "ioType": "AI",
+      "description": "Tank Level (%)",
+      "modbus": {
+        "registerType": "HoldingRegister",
+        "address": 40001,
+        "dataType": "UINT16",
+        "scaleFactor": 0.1,
+        "offset": 0.0,
+        "units": "%"
+      },
+      "readOnly": true
+    },
+    {
+      "pointIdSuffix": "_Pump",
+      "ioType": "DO",
+      "description": "Pump Enable",
+      "modbus": {
+        "registerType": "Coil",
+        "address": 1,
+        "dataType": "BOOLEAN"
+      },
+      "readOnly": false
+    }
+  ]
+}

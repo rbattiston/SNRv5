@@ -1,0 +1,55 @@
+[
+  {
+    "_sample": "This is a SAMPLE relay_types.json file for demonstration and UI testing purposes only.",
+    "typeId": "unconfigured",
+    "displayName": "Unconfigured",
+    "description": "Output point is not assigned a function.",
+    "supportsVolume": false,
+    "supportsAutopilotInput": false,
+    "supportsVerificationInput": false,
+    "configParams": [
+      { "id": "name", "label": "Output Name", "type": "text", "required": false, "default": "Output X" }
+    ],
+    "resumeStateOnReboot": false
+  },
+  {
+    "typeId": "solenoid_valve",
+    "displayName": "Solenoid Valve",
+    "description": "Controls fluid flow. Can use Duration, Volume, or Autopilot (linked input).",
+    "supportsVolume": true,
+    "supportsAutopilotInput": true,
+    "supportsVerificationInput": false,
+    "resumeStateOnReboot": false,
+    "configParams": [
+      { "id": "name", "label": "Valve Name", "type": "text", "required": true },
+      { "id": "flowRateGPH", "label": "Flow Rate (GPH)", "type": "number", "required": false, "min": 0.01, "step": 0.01 },
+      { "id": "flowRateLPH", "label": "Flow Rate (LPH)", "type": "number", "readonly": true },
+      { "id": "emittersPerPlant", "label": "Emitters per Plant", "type": "number", "required": false, "min": 1, "default": 1, "step": 1 }
+    ]
+  },
+  {
+    "typeId": "pump",
+    "displayName": "Pump",
+    "description": "Controls a pump. Can use Duration or Autopilot (linked input).",
+    "supportsVolume": false,
+    "supportsAutopilotInput": true,
+    "supportsVerificationInput": true,
+    "resumeStateOnReboot": false,
+    "configParams": [
+      { "id": "name", "label": "Pump Name", "type": "text", "required": true }
+    ]
+  },
+  {
+    "typeId": "lighting",
+    "displayName": "Lighting",
+    "description": "Simple ON/OFF control for lights. Can use Autopilot (time-based) or Verification (linked input).",
+    "supportsVolume": false,
+    "supportsAutopilotInput": false,
+    "supportsVerificationInput": true,
+    "resumeStateOnReboot": true,
+    "configParams": [
+      { "id": "name", "label": "Light Name", "type": "text", "required": true },
+      { "id": "wattage", "label": "Wattage (W)", "type": "number", "required": false, "min": 1 }
+    ]
+  }
+]

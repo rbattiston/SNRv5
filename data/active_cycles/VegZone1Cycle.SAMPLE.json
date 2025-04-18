@@ -1,0 +1,37 @@
+{
+  "_sample": "This is a SAMPLE active cycle configuration for demonstration and UI testing purposes only.",
+  "cycleId": "VegZone1Cycle",
+  "cycleName": "Vegetative Cycle Zone 1 (SAMPLE)",
+  "cycleState": "SAVED_ACTIVE",
+  "cycleStartDate": "2025-04-08T00:00:00Z",
+  "currentStep": 1,
+  "stepStartDate": "2025-04-08T00:00:00Z",
+  "cycleSequence": [
+    {
+      "step": 1,
+      "scheduleInstanceId": "instance_mygrow_xyz",
+      "libraryScheduleId": "sched_template_1678886400",
+      "durationDays": 14
+    }
+  ],
+  "associatedOutputs": [
+    {
+      "pointId": "DirectRelay_0",
+      "role": "primary_actuator"
+    }
+  ],
+  "associatedInputs": [
+    {
+      "pointId": "Tensiometer_Z1",
+      "role": "AUTOPILOT_CONTROL"
+    },
+    {
+      "pointId": "Tensiometer_Z1_Backup",
+      "role": "AUTOPILOT_CONTROL"
+    },
+    {
+      "pointId": "LightSensor_Room1",
+      "role": "STATE_VERIFICATION"
+    }
+  ]
+}

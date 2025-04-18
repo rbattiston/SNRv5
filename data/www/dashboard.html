@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNR System - Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>SNR System</h1>
+        </div>
+        <div class="user-info">
+            <span class="user-name" id="username">Loading...</span>
+            <span class="user-role" id="userRole">...</span>
+            <button class="logout-btn" id="logoutBtn">Logout</button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="sidebar">
+            <a href="/dashboard.html" class="nav-item active">Dashboard</a>
+            <a href="/schedule.html" class="nav-item">Schedules</a> <!-- Added Link -->
+            <div class="nav-item">Cycle Templates</div> <!-- Placeholder -->
+            <div class="nav-item">Active Cycles</div>   <!-- Placeholder -->
+            <div class="nav-item">Settings</div>        <!-- Placeholder -->
+        </nav>
+
+        <main class="content">
+            <h1 class="page-title">Dashboard</h1>
+
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-title">
+                        <span>Active Cycles</span>
+                        <span class="status-indicator status-active"></span>
+                    </div>
+                    <div class="card-value">3</div>
+                    <div class="card-subtitle">Currently running cycles</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <span>Schedules</span>
+                        <span class="status-indicator status-warning"></span>
+                    </div>
+                    <div class="card-value">12</div>
+                    <div class="card-subtitle">Total configured schedules</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <span>System Status</span>
+                        <span class="status-indicator status-active"></span>
+                    </div>
+                    <div class="card-value">Online</div>
+                    <div class="card-subtitle">Last updated: Just now</div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Recent Schedules</h2>
+
+            <div class="schedule-list">
+                <div class="schedule-header">
+                    <div>Name</div>
+                    <div>Created By</div>
+                    <div>Status</div>
+                    <div>Action</div>
+                </div>
+
+                <div class="schedule-item">
+                    <div>Morning Cycle</div>
+                    <div>admin</div>
+                    <div>Active</div>
+                    <div><button class="action-btn">Edit</button></div>
+                </div>
+
+                <div class="schedule-item">
+                    <div>Evening Cycle</div>
+                    <div>manager1</div>
+                    <div>Inactive</div>
+                    <div><button class="action-btn">Edit</button></div>
+                </div>
+
+                <div class="schedule-item">
+                    <div>Weekend Cycle</div>
+                    <div>admin</div>
+                    <div>Scheduled</div>
+                    <div><button class="action-btn">Edit</button></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        &copy; 2025 SNR System | Secure ESP32 Web Application
+    </footer>
+
+    <script src="/js/dashboard.js" defer></script>
+</body>
+</html>

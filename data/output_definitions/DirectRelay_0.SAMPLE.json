@@ -1,0 +1,10 @@
+{
+  "_sample": "This is a SAMPLE output point definition for demonstration and UI testing purposes only.",
+  "pointId": "DirectRelay_0",
+  "assignedType": "solenoid_valve",
+  "configValues": {
+    "name": "Zone 1 Veg Valve (SAMPLE)",
+    "flowRateGPH": 5.0,
+    "emittersPerPlant": 4
+  }
+}

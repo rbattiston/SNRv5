@@ -1,0 +1,51 @@
+{
+  "_sample": "This is a SAMPLE schedule template for demonstration and UI testing purposes only.",
+  "scheduleName": "My Grow Schedule Template (SAMPLE)",
+  "lightsOnTime": 360,
+  "lightsOffTime": 1080,
+  "scheduleUID": "my_grow_schedule_template_1678886400",
+  "autopilotWindows": [
+    {
+      "startTime": 600,
+      "endTime": 605,
+      "matricTension": 15.5,
+      "doseVolume": 250,
+      "settlingTime": 30,
+      "doseDuration": 0
+    }
+  ],
+  "durationEvents": [
+    { "startTime": 720, "duration": 120, "endTime": 722 },
+    { "startTime": 725, "duration": 120, "endTime": 727 },
+    { "startTime": 730, "duration": 120, "endTime": 732 },
+    { "startTime": 735, "duration": 120, "endTime": 737 },
+    { "startTime": 740, "duration": 120, "endTime": 742 },
+    { "startTime": 745, "duration": 120, "endTime": 747 },
+    { "startTime": 750, "duration": 120, "endTime": 752 },
+    { "startTime": 755, "duration": 120, "endTime": 757 },
+    { "startTime": 760, "duration": 120, "endTime": 762 },
+    { "startTime": 765, "duration": 120, "endTime": 767 },
+    { "startTime": 770, "duration": 120, "endTime": 772 },
+    { "startTime": 775, "duration": 120, "endTime": 777 },
+    { "startTime": 780, "duration": 120, "endTime": 782 },
+    { "startTime": 785, "duration": 120, "endTime": 787 },
+    { "startTime": 790, "duration": 120, "endTime": 792 },
+    { "startTime": 795, "duration": 120, "endTime": 797 },
+    { "startTime": 800, "duration": 120, "endTime": 802 },
+    { "startTime": 805, "duration": 120, "endTime": 807 },
+    { "startTime": 810, "duration": 120, "endTime": 812 },
+    { "startTime": 815, "duration": 120, "endTime": 817 },
+    { "startTime": 820, "duration": 120, "endTime": 822 },
+    { "startTime": 825, "duration": 120, "endTime": 827 },
+    { "startTime": 830, "duration": 120, "endTime": 832 },
+    { "startTime": 835, "duration": 120, "endTime": 837 },
+    { "startTime": 840, "duration": 120, "endTime": 842 },
+    { "startTime": 845, "duration": 120, "endTime": 847 },
+    { "startTime": 850, "duration": 120, "endTime": 852 },
+    { "startTime": 855, "duration": 120, "endTime": 857 },
+    { "startTime": 860, "duration": 120, "endTime": 862 }
+  ],
+  "volumeEvents": [
+    { "startTime": 480, "doseVolume": 150 }
+  ]
+}

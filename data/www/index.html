@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNR System - Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <div class="login-logo">
+            <h1>SNR System</h1>
+            <p>Secure Network Remote Control</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div id="errorMessage" class="error-message">
+            Invalid username or password. Please try again.
+        </div>
+
+        <div id="successMessage" class="success-message">
+            Login successful! Redirecting...
+        </div>
+    </div>
+
+    <div class="footer login-footer">
+        &copy; 2025 SNR System | Secure ESP32 Web Application
+    </div>
+
+    <script src="/js/login.js" defer></script>
+</body>
+</html>
